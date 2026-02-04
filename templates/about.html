@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Us</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: white;
+      padding-top: 80px;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      height: 70px;
+      background: rgba(255, 255, 255, 0.04);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 40px;
+      z-index: 1000;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .nav-logo {
+      font-weight: 700;
+      font-size: 1.3rem;
+      color: #00c6ff;
+    }
+
+    .nav-links a {
+      margin-left: 25px;
+      color: #ffffffcc;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #00c6ff;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 60px;
+      background: linear-gradient(to right, #00c6ff, #0072ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .member {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 60px;
+      gap: 30px;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .member:nth-child(even) {
+      flex-direction: row-reverse;
+    }
+
+    .member img {
+      width: 280px;
+      height: 280px;
+      object-fit: cover;
+      border-radius: 20px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+    }
+
+    .member-info {
+      flex: 1;
+    }
+
+    .member-info h2 {
+      font-size: 1.8rem;
+      color: #00c6ff;
+      margin-bottom: 10px;
+    }
+
+    .member-info p {
+      font-size: 1rem;
+      color: #dddddd;
+      margin-bottom: 10px;
+    }
+
+    .social-links a {
+      text-decoration: none;
+      color: white;
+      margin-right: 15px;
+      font-size: 1.4rem;
+      transition: 0.3s;
+    }
+
+    .social-links a:hover {
+      color: #00c6ff;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      padding-top: 100px;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.8);
+    }
+
+    .modal-content {
+      background-color: #1f2d3a;
+      margin: auto;
+      padding: 30px;
+      border: 1px solid #888;
+      width: 90%;
+      max-width: 500px;
+      border-radius: 12px;
+      color: white;
+      animation: fadeIn 0.5s ease;
+    }
+
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .close:hover {
+      color: #fff;
+    }
+
+    .more-btn {
+      background: none;
+      color: #00c6ff;
+      border: 1px solid #00c6ff;
+      padding: 6px 12px;
+      font-size: 0.9rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .more-btn:hover {
+      background: #00c6ff;
+      color: #000;
+    }
+
+    .footer-note {
+      text-align: center;
+      padding: 30px 10px;
+      font-size: 1rem;
+      color: #cccccc;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      margin-top: 50px;
+    }
+
+    @media (max-width: 768px) {
+      .member {
+        flex-direction: column !important;
+        text-align: center;
+      }
+
+      .member img {
+        width: 200px;
+        height: 200px;
+      }
+
+      .social-links {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav>
+  <div class="nav-logo">Plagiarism Checker</div>
+  <div class="nav-links">
+    <a href="/">Home</a>
+    <a href="/about">About Us</a>
+    <a href="/#members">Group Members</a>
+  </div>
+</nav>
+
+<div class="container">
+  <h1>Meet Our Team</h1>
+
+  <!-- Member 1 -->
+  <div class="member">
+    <img src="/static/rameez.jpg" alt="Rameez Ali">
+    <div class="member-info">
+      <h2>Rameez Ali</h2>
+      <p>He's responsible for Flask integration, making model runable by pkl files, explore the similarity matching functions to check plagiarism</p>
+      <div class="social-links">
+        <a href="https://www.linkedin.com/in/malikrameezliaqat/" target="_blank">🔗 LinkedIn</a>
+        <button class="more-btn" onclick="openModal('rameez')">More Info</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Member 2 -->
+  <div class="member">
+    <img src="/static/saad.jpg" alt="Saad Sultan">
+    <div class="member-info">
+      <h2>Saad Sultan</h2>
+      <p>Focused on datapreprocessing using different techniques like tokenization, vectorization etc.</p>
+      <div class="social-links">
+        <a href="https://www.linkedin.com/in/muhammadsaadsultan/" target="_blank">🔗 LinkedIn</a>
+        <button class="more-btn" onclick="openModal('saad')">More Info</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Member 3 -->
+  <div class="member">
+    <img src="/static/hassan.JPG" alt="Hassan Arif">
+    <div class="member-info">
+      <h2>Hassan Arif</h2>
+      <p>He have Trained model using different algorithm and choosed the algorithm giving maximum accuracy.</p>
+      <div class="social-links">
+        <a href="https://www.linkedin.com/in/hassanarif316/" target="_blank">🔗 LinkedIn</a>
+        <button class="more-btn" onclick="openModal('hassan')">More Info</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Team Note -->
+  <div class="footer-note">
+    Done with collaboration — no single task was completed alone; everyone helped each other.
+  </div>
+</div>
+
+<!-- Modals -->
+<div id="rameez" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('rameez')">&times;</span>
+    <h2>Rameez Ali</h2>
+    <p>Passionate Full Stack Developer.</p>
+  </div>
+</div>
+
+<div id="saad" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('saad')">&times;</span>
+    <h2>Saad Sultan</h2>
+    <p>Passionate Full Stack Developer.</p>
+  </div>
+</div>
+
+<div id="hassan" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('hassan')">&times;</span>
+    <h2>Hassan Arif</h2>
+    <p>Passionate Full Stack Developer.</p>
+  </div>
+</div>
+
+<script>
+  function openModal(id) {
+    document.getElementById(id).style.display = "block";
+  }
+
+  function closeModal(id) {
+    document.getElementById(id).style.display = "none";
+  }
+
+  window.onclick = function(event) {
+    const modals = document.querySelectorAll(".modal");
+    modals.forEach(modal => {
+      if (event.target === modal) modal.style.display = "none";
+    });
+  };
+</script>
+
+</body>
+</html>
